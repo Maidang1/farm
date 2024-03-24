@@ -8,8 +8,6 @@
 
 # Postcss Plugin for Farm
 
-
-
 ## Getting Started
 
 To begin, you'll need to install `postcss` and `@farmfe/js-plugin-postcss`:
