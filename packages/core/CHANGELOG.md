@@ -1,5 +1,11 @@
 # @farmfe/core
 
+## 1.2.2
+
+### Patch Changes
+
+- 223af33f: resolver priority exports field when string type
+
 ## 1.2.1
 
 ### Patch Changes
