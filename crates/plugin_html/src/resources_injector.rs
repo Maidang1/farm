@@ -284,7 +284,9 @@ impl<'a> VisitMut for ResourcesInjector<'a> {
       self.inject_global_this(element);
 
       // inject runtime <script>
-      self.inject_runtime_resources(element);
+      if !self.options.context.config.html.disable_inline_scripts {
+        self.inject_runtime_resources(element);
+      }
 
       // inject css <link>
       for css in &self.css_resources {
@@ -309,8 +311,10 @@ impl<'a> VisitMut for ResourcesInjector<'a> {
         )));
       }
 
-      self.inject_initial_loaded_resources(element);
-      self.inject_dynamic_resources_map(element);
+      if !self.options.context.config.html.disable_inline_scripts {
+        self.inject_initial_loaded_resources(element);
+        self.inject_dynamic_resources_map(element);
+      }
 
       if get_config_runtime_isolate(&self.options.context) {
         self.inject_resource_separate_file(element);
